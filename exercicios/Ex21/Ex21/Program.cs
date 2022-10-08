@@ -19,50 +19,35 @@ namespace Ex21
             mes = Convert.ToInt32(data.Substring(3, 2));
             ano = Convert.ToInt32(data.Substring(6, 4));
 
-            if(ano >= 2000 && ano <= 2099)
-            {
-                if(mes >= 1 && ano <= 12)
-                {
-                    if(dia >= 1 && dia <= 31)
-                    {
-                        //data é parcialmente correta
-                        if((mes == 4 || mes == 6 || mes ==9 || mes == 11) && dia 31){
+            if(ano >= 2000 && ano <= 2099){
+                if(mes >= 1 && ano <= 12) {
+                    if(dia >= 1 && dia <= 31) {
+                        /*data é parcialmente correta*/
+                        if( (mes == 4 || mes == 6 || mes ==9 || mes == 11) && dia == 31) {
                             Console.Write("Dia 31 para o mes é inválido");
-                        }
-                        else
-                        {
+                        }else {
                             //falta testar somente o mês de fevereiro
-                            if(mes == 2 && dia > 29 && ano % 4 == 0)
-                            {
+                            if(mes == 2 && dia > 29 && ano % 4 == 0) {
                                 Console.Write("Mes Fev com mais que 29 dias");
-                            }
-                            else
-                            {
-                                if(mes == 2 && dia > 28)
-                                {
+                            }else {
+                                if(mes == 2 && dia > 28 && ano % 4 != 0) {
                                     Console.Write("Mes Fev com mais que 28 dias");
-                                }
-                                else
-                                {
+                                }else {
                                     Console.Write("Data Válida!!");
                                 }
                             }
                         }
-                    }
-                    else
-                    {
+                    }else {
                         Console.Write("Dia inválido");
                     }
-                }
-                else
-                {
+                }else {
                     Console.Write("Mês Inválido");
                 }
-            }
-            else
-            {
+            }else {
                 Console.Write("Ano inválido");
             }
+
+            Console.ReadLine();
         }
     }
 }
