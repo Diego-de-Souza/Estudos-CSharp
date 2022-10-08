@@ -29,17 +29,25 @@ namespace work_strings
             Console.WriteLine($"{quartaExpressão}");
             Console.WriteLine(quartaExpressão[7]);
 
+            //usando o metodo replace junto com o regex que é especial de uma biblioteca
             string quintaExpressão = Regex.Replace(primeiraExpressão, @"\s", "");
             Int16 contagem;
-            
+
+            //utilizando o laço for para escrever a string separada
             for (contagem = 0; contagem < quintaExpressão.Length; contagem++)
             {
                 Console.Write($"{quintaExpressão[contagem]} -");
             };
 
-
+            //utilizando o metodo "Length" para imprimir o tamanho da string
             Console.WriteLine($"{primeiraExpressão.Length}");
             Console.WriteLine($"{quintaExpressão.Length}");
+
+            //tudo que é colocado entre aspas duplas é considerado uma string e aspas simples é char
+            //e só pode ser inserido somente um caracter
+            char letra = 'A';
+
+
 
             Console.ReadKey();
         }

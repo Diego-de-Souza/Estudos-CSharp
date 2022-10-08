@@ -20,7 +20,7 @@ namespace Ex21
             ano = Convert.ToInt32(data.Substring(6, 4));
 
             if(ano >= 2000 && ano <= 2099){
-                if(mes >= 1 && ano <= 12) {
+                if(mes >= 1 && mes <= 12) {
                     if(dia >= 1 && dia <= 31) {
                         /*data é parcialmente correta*/
                         if( (mes == 4 || mes == 6 || mes ==9 || mes == 11) && dia == 31) {
