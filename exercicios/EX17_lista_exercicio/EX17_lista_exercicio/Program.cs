@@ -31,7 +31,7 @@ namespace EX17_lista_exercicio
             //Imprime o primeiro nome Digitado
             Console.WriteLine("Seu primeiro nome é {0}", nomeFull.Substring(0, espacoBranco));
             //Imprime as 3 ultimas letras do nome
-            Console.WriteLine("As 3 ultimas letras do seu nome é '{0}'", nomeFull.Substring(nomeFull.Length - 3, 3));
+            Console.WriteLine("As 3 ultimas letras do seu nome é '{0}'", nomeFull.Substring(nomeFull.Length -3));
 
             //Calculo de desconto de 11%  do INSS
             double descINSS = salario * 0.11;
