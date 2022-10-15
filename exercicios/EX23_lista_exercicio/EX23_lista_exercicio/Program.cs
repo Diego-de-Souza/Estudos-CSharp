@@ -21,7 +21,7 @@ namespace EX23_lista_exercicio
             double idade = Convert.ToDouble((Console.ReadLine()));
 
             //laço condicional para impressão de resultado na tela
-<<<<<<< HEAD
+
             if((altura>= 1.70 && altura<=1.85)&&(kilos>=48 && kilos<=60)&&(idade>=15 && idade <= 20))
             {
                 Console.WriteLine("Candidato Aprovado!");
@@ -32,12 +32,9 @@ namespace EX23_lista_exercicio
             }
 
             Console.ReadKey();
-=======
-            if((altura>= 1,70 && altura<=1,85)&&(kilos>=48 && kilos<=60)&&(idade>=15 && idade <= 20))
-            {
 
-            }
->>>>>>> 84acfac4669ee32d93872f3b83e0c587ae2d3663
+            
+
         }
     }
 }
