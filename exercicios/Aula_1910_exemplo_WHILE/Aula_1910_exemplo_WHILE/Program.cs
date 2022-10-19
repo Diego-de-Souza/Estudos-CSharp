@@ -29,6 +29,11 @@ namespace Aula_1910_exemplo_WHILE
             {
                 Console.Write("Digite o Estado Civil (C-S-V-D):");
                 estadoCivil = Console.ReadLine().ToUpper()[0];
+
+                if(estadoCivil != 'C' && estadoCivil != 'S' && estadoCivil != 'V' && estadoCivil != 'D')
+                {
+                    Console.WriteLine("Informação errada, tente novamente");
+                }
             }
             Console.WriteLine("Informação Aceita..");
 
