@@ -18,6 +18,7 @@ namespace EX31_lista_exercicio
             char letra = Console.ReadLine()[0];
             /*
             Console.Write("digite 1: ");
+            //usar o parse int pode dar problema caso o usuario insira mais de um letra
             char teste = char.Parse(Console.ReadLine());
             */
 
@@ -27,7 +28,7 @@ namespace EX31_lista_exercicio
             for(Int32 num=1; num <= frase.Length; num++)
             {
                 
-                if (frase[num-1] == letra)
+                if (frase[num-1].ToString().ToUpper() == letra.ToString().ToUpper())
                 {
                     cont++;
                 }
