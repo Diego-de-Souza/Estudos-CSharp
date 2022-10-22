@@ -37,6 +37,22 @@ namespace Aula_1910_exemplo_WHILE
             }
             Console.WriteLine("Informação Aceita..");
 
+            switch (estadoCivil)
+            {
+                case 'C':
+                    Console.Write("Você é casado");
+                    break;
+                case 'S':
+                    Console.Write("Você é solteiro");
+                    break;
+                case 'V':
+                    Console.Write("Você é viúvo");
+                    break;
+                case 'D':
+                    Console.Write("Você é divorciado");
+                    break;
+            }
+
             Console.ReadKey();
         }
     }
