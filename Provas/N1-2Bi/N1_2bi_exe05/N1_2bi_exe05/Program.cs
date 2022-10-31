@@ -4,17 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace N1_2bi_exe04
+namespace N1_2bi_exe05
 {
-    class Program
+    internal class Program
     {
         static void Main(string[] args)
         {
             //declara dado do laço
             char saiLaco1 = 'N', saiLaco2 = 'N';
             double n1, n2, escolha;
-            Int16 terminaLaco = 1, invalido=1;
-            do
+            Int16 terminaLaco = 1, invalido = 1;
+            while (terminaLaco == 1)
+            {
+                do
                 {
                     //solicita os dados da n1
                     Console.Write("Digite a nota da 1° prova: ");
@@ -46,7 +48,33 @@ namespace N1_2bi_exe04
                 double result = (n1 + n2) / 2;
                 //imprime a media na tela
                 Console.WriteLine($"Sua média semestral é {result}");
+                //imprime a mensagem para sair do laço
+                Console.Write("Novo Calculo? Digite 1 para sim e 2 para não: ");
+
+                do
+                {
+                    escolha = Convert.ToDouble(Console.ReadLine());
+                    if (escolha != 2)
+                    {
+                        if (escolha != 1)
+                        {
+                            Console.Write("Valor digitado é inválido!");
+
+                        }
+                        else
+                        {
+
+                            invalido = 2;
+                        }
+                    }
+                    else
+                    {
+                        terminaLaco = 2;
+                    }
+                } while (invalido == 1);
+            }
             Console.ReadLine();
+
         }
     }
 }
