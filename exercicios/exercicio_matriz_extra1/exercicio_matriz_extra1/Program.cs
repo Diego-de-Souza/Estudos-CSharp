@@ -34,6 +34,10 @@ namespace exercicio_matriz_extra1
                     {
                         numeroPar++;
                     }
+                    else
+                    {
+
+                    }
                     
                 }
                 Console.WriteLine($"Tem {numeroPar} números pares na linha ({linha}-{coluna})");
