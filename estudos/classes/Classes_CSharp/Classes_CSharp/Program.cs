@@ -10,12 +10,20 @@ namespace Classes_CSharp
     {
         static void Main(string[] args)
         {
-           Cadastro cadastro = new Cadastro();
+           Cadastro cadastro = new Cadastro(253, "Emilly", "Lorraine","emillylorrane.souza@gmail.com", 10,408506504-33);
 
             Calculadora calc = new Calculadora();
             calc.inserirDados();
             calc.somar();
             calc.mostraResultado();
+
+            Console.WriteLine("\n\nResponsavel pela calculadora "+
+                cadastro.cod+
+                " \nNome: "+cadastro.nome+
+                " "+cadastro.sobreNome+
+                " \nE-mail: "+cadastro.eMail+
+                " \nIdade: "+cadastro.idade+
+                " \nCPF: "+cadastro.cPF);
 
             Console.ReadKey();
         }
