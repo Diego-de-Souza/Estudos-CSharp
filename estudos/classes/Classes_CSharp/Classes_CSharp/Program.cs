@@ -12,6 +12,12 @@ namespace Classes_CSharp
         {
            Cadastro cadastro = new Cadastro();
 
+            Calculadora calc = new Calculadora();
+            calc.inserirDados();
+            calc.somar();
+            calc.mostraResultado();
+
+            Console.ReadKey();
         }
     }
 }
