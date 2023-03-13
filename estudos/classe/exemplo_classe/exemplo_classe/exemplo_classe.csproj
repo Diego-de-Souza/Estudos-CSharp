@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1E58A3E3-A1EA-4255-9340-511E09498B0A}</ProjectGuid>
+    <ProjectGuid>{AB0627EF-FDCB-42BD-B53A-BC280AC00A6D}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Classes_orientada_a_objeto</RootNamespace>
-    <AssemblyName>Classes_orientada_a_objeto</AssemblyName>
+    <RootNamespace>exemplo_classe</RootNamespace>
+    <AssemblyName>exemplo_classe</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Carro.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
