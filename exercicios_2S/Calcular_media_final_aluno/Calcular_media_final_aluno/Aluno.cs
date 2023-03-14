@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,6 +12,7 @@ namespace Calcular_media_final_aluno
         public string nome;
         public int idade;
         public double mediaFinal;
+        public string aprovacao;
 
         public Aluno(string nome, int idade)
         {
@@ -27,11 +29,16 @@ namespace Calcular_media_final_aluno
         {
             if(this.mediaFinal >= 7)
             {
-                string Aprovacao = "Aprovado";
+                this.aprovacao = "Aprovado";
             }else
             {
-                string Aprovacao = "Reprovado";
+                this.aprovacao = "Reprovado";
             }
+        }
+
+        Publisher string dados()
+        {
+            return this.nome + this.idade + this.mediaFinal + this.aprovacao;
         }
 
     }
