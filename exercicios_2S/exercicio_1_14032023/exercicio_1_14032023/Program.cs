@@ -42,7 +42,7 @@ namespace exercicio_1_14032023
                 alunos[reg] = alunoCadastro;
             }
 
-            for(int regs = 0;regs <= 4; regs++)
+            for(int regs = 0;regs <= 4; regs++) 
             {
                 Console.WriteLine($"Aluno: {alunos[regs].nome}");
                 Console.WriteLine($"Idade: {alunos[regs].idade}");

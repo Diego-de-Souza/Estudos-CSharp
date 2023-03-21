@@ -10,9 +10,14 @@ namespace exercicio_2_14032023
     {
         public string nomeTitular;
         public int numeroConta;
-        public double saldo;
+        public double saldo;          
         public string statusOperacao;
 
+        public ContaBancaria(string nome, int numero)
+        {
+            this.nomeTitular = nome;
+            this.numeroConta = numero;
+        }
 
         public void depositar(double deposito)
         {

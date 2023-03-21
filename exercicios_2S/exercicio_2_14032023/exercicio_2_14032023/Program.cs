@@ -10,22 +10,37 @@ namespace exercicio_2_14032023
     {
         static void Main(string[] args)
         {
-            //Inicia um objeto vetor para guardar sa informações do aluno
-            ContaBancaria[] contaBanco = new ContaBancaria[3];
-            //gerando um objeto de numero randomico
+            //Criando um vetor de objetos de classe
+            ContaBancaria[] contaBanco = new ContaBancaria[2];
+            string nome;
+            int conta;
             Random rnd = new Random();
 
-            for (int dep = 0; dep <= 2; dep++)
-            {
-                contaBanco[dep].depositar(rnd.Next(1, 1000));
-                contaBanco[dep].nomeTitular = "Cliente " + dep;
-                contaBanco[dep].numeroConta = 000020320 + dep;
-            }
 
+            for (int i = 0; i < contaBanco.Length; i++)
+            {
+                nome = "cliente"+i;
+                conta = 2025125+i;
+                ContaBancaria proxConta = new ContaBancaria(nome, conta);
+                contaBanco[i] = proxConta;
+            }
             do
             {
-                
-            } while (contaBanco[0].saldo > 0 || contaBanco[1].saldo > 0 || contaBanco[2].saldo > 0);
+                for (int sac = 1; sac < 3; sac++)
+                {
+                    contaBanco[(sac - 1)].Sacar(rnd.Next(1, 500));
+                }
+            } while (contaBanco[0].saldo > contaBanco[0].Sacar || contaBanco[1].saldo > contaBanco[1].Sacar || contaBanco[2].saldo > contaBanco[1].Sacar);
+
+            for (int resultado = 1; resultado < 3; resultado++)
+            {
+                Console.WriteLine($"Titular da conta: {contaBanco[(resultado - 1)].nomeTitular}");
+                Console.WriteLine($"Número da Conta: {contaBanco[(resultado - 1)].numeroConta}");
+                Console.WriteLine($"Saldo: {contaBanco[(resultado - 1)].saldo}");
+            }
+
+
+            Console.ReadKey();
         }
     }
 }
