@@ -11,9 +11,9 @@ namespace exercicio_2_14032023
         static void Main(string[] args)
         {
             //Criando um vetor de objetos de classe
-            ContaBancaria[] contaBanco = new ContaBancaria[2];
+            ContaBancaria[] contaBanco = new ContaBancaria[3];
             string nome;
-            int conta;
+            int conta, valorSaque, valorDep;
             Random rnd = new Random();
 
 
@@ -23,20 +23,34 @@ namespace exercicio_2_14032023
                 conta = 2025125+i;
                 ContaBancaria proxConta = new ContaBancaria(nome, conta);
                 contaBanco[i] = proxConta;
+                
+                valorDep = rnd.Next(1, 5000);
+                contaBanco[i].depositar(valorDep);
+                Console.WriteLine($"Depositado R${valorDep} ao cliente{i}"); 
             }
-            do
+            Console.WriteLine("\n");
+            for (int x = 0; x < contaBanco.Length; x++)
             {
-                for (int sac = 1; sac < 3; sac++)
+                while (contaBanco[x].statusOperacao == true)
                 {
-                    contaBanco[(sac - 1)].Sacar(rnd.Next(1, 500));
+                    valorSaque = rnd.Next(1, 500);
+                    contaBanco[x].Sacar(valorSaque);
+                    Console.WriteLine($"Saque cliente{x} de R${valorSaque} bem sucedido");
+                    if (contaBanco[x].statusOperacao == false)
+                    {
+                        Console.WriteLine($"Não foi possivel fazer o saque de R${valorSaque}, Saldo indisponivel!");
+                    }
                 }
-            } while (contaBanco[0].saldo > contaBanco[0].Sacar || contaBanco[1].saldo > contaBanco[1].Sacar || contaBanco[2].saldo > contaBanco[1].Sacar);
+                
+                
+            }
+            Console.WriteLine("\n");
 
-            for (int resultado = 1; resultado < 3; resultado++)
+            for (int resultado = 0; resultado < contaBanco.Length; resultado++)
             {
-                Console.WriteLine($"Titular da conta: {contaBanco[(resultado - 1)].nomeTitular}");
-                Console.WriteLine($"Número da Conta: {contaBanco[(resultado - 1)].numeroConta}");
-                Console.WriteLine($"Saldo: {contaBanco[(resultado - 1)].saldo}");
+                Console.WriteLine($"Titular da conta: {contaBanco[(resultado)].nomeTitular}");
+                Console.WriteLine($"Número da Conta: {contaBanco[(resultado)].numeroConta}");
+                Console.WriteLine($"Saldo: {contaBanco[(resultado)].saldo}");
             }
 
 

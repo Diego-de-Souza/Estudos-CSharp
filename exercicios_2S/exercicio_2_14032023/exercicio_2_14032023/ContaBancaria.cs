@@ -10,8 +10,8 @@ namespace exercicio_2_14032023
     {
         public string nomeTitular;
         public int numeroConta;
-        public double saldo;          
-        public string statusOperacao;
+        public double saldo=0;          
+        public bool statusOperacao=true;
 
         public ContaBancaria(string nome, int numero)
         {
@@ -21,18 +21,18 @@ namespace exercicio_2_14032023
 
         public void depositar(double deposito)
         {
-            this.saldo += deposito;
+            this.saldo = deposito;
         }
 
-        public void Sacar(double retirada)
+        public void Sacar(int retirada)
         {
             if(retirada < this.saldo)
             {
-                this.saldo -= retirada;
-                this.statusOperacao = "true";
-            }else
+                this.saldo = this.saldo - retirada;
+                this.statusOperacao = true;
+            }else if (retirada > this.saldo)
             {
-                this.statusOperacao = "false";
+                this.statusOperacao = false;
             }
         }
     }
