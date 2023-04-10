@@ -118,6 +118,7 @@ namespace atividade_sistema_biblioteca
                 "\n2 - Devolver Livro" +
                 "\n3 - Ver situação do Livro");
             Int16 escolhaOperacao = Convert.ToInt16(Console.ReadLine());
+            string teste=" ";
             //em função da esolha da operação o usuário agora escolhe como quer proceder
             if (escolhaOperacao == 1)
             {
@@ -135,14 +136,20 @@ namespace atividade_sistema_biblioteca
 
                     Console.WriteLine("Digite o nome do Livro: ");
                     string nomeDoLivroEmprestimo = Console.ReadLine();
-                    for (int procurarTitulo = 1; procurarTitulo < livros.Length; procurarTitulo++)
-                    {
-                        string teste1 = livros[procurarTitulo - 1].ToString();
-                        if (teste1 == nomeDoLivroEmprestimo)
-                        {
-                            Console.WriteLine(livros[procurarTitulo - 1].titulo);
-                        }
 
+                    for (int procurarTitulo = 1; procurarTitulo < livros.Length-1; procurarTitulo++)
+                    {
+                        
+                            
+                            teste = livros[procurarTitulo].titulo;
+
+                            if (teste == nomeDoLivroEmprestimo)
+                            {
+                                Console.WriteLine(livros[procurarTitulo].Id + ", " +
+                                    livros[procurarTitulo].titulo);
+                            }
+                            
+                        
                     }
                     Console.Write("o livro é {0}", nomeDoLivroEmprestimo);
 
