@@ -19,7 +19,7 @@ namespace atividade_sistema_biblioteca
         public string editora;
         public string volume;
         public bool disponibilidade=true;
-        //construtor
+
         public Livro(int Id, string nomeLivro, string nomeAutor, string nomeEditora, string volumeLivro)
         {
             this.Id = Id;
