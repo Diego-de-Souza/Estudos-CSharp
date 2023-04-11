@@ -34,6 +34,7 @@ namespace atividade_sistema_biblioteca
             Livro[] livros = new Livro[100];
             string nomeLivro, nomeAutor, nomeEditora, volumeLivro;
             int id;
+            Int32 numQuantCadastro = 1;
         //
 
         //laço de repetição para login, caso a senha esteje errada
@@ -77,7 +78,7 @@ namespace atividade_sistema_biblioteca
         labelAdmin:
             Console.Clear();
             string quantCadastro = "n";
-            Int32 numQuantCadastro = 1;
+            
 
             for (int cadastro = 0; cadastro < numQuantCadastro; cadastro++)
             {
@@ -118,7 +119,7 @@ namespace atividade_sistema_biblioteca
                 "\n2 - Devolver Livro" +
                 "\n3 - Ver situação do Livro");
             Int16 escolhaOperacao = Convert.ToInt16(Console.ReadLine());
-            string teste=" ";
+            Int32 testeVariavel = numQuantCadastro;
             //em função da esolha da operação o usuário agora escolhe como quer proceder
             if (escolhaOperacao == 1)
             {
@@ -130,6 +131,7 @@ namespace atividade_sistema_biblioteca
                     "\n3 - Pelo nome da editora" +
                     "\n4 - Pela disponibilidade");
                 Int16 escolhaOperacaoEmprestimo = Convert.ToInt16(Console.ReadLine());
+                
 
                 if (escolhaOperacaoEmprestimo == 1)
                 {
@@ -137,19 +139,13 @@ namespace atividade_sistema_biblioteca
                     Console.WriteLine("Digite o nome do Livro: ");
                     string nomeDoLivroEmprestimo = Console.ReadLine();
 
-                    for (int procurarTitulo = 1; procurarTitulo < livros.Length-1; procurarTitulo++)
+                    for (int procurarTitulo = 0; procurarTitulo < numQuantCadastro; procurarTitulo++)
                     {
-                        
-                            
-                            teste = livros[procurarTitulo].titulo;
 
-                            if (teste == nomeDoLivroEmprestimo)
-                            {
-                                Console.WriteLine(livros[procurarTitulo].Id + ", " +
-                                    livros[procurarTitulo].titulo);
-                            }
-                            
-                        
+                        if (livros[procurarTitulo].titulo == nomeDoLivroEmprestimo)
+                        {
+                            Console.WriteLine(livros[procurarTitulo].MostrarInformacoes());
+                        }
                     }
                     Console.Write("o livro é {0}", nomeDoLivroEmprestimo);
 
