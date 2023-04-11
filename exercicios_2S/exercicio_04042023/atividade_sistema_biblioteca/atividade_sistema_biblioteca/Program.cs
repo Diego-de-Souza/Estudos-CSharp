@@ -120,6 +120,8 @@ namespace atividade_sistema_biblioteca
                 "\n3 - Ver situação do Livro");
             Int16 escolhaOperacao = Convert.ToInt16(Console.ReadLine());
             Int32 testeVariavel = numQuantCadastro;
+            Int16 idLivroEscolhido;
+            string confirmaEmprestimo;
             //em função da esolha da operação o usuário agora escolhe como quer proceder
             if (escolhaOperacao == 1)
             {
@@ -128,26 +130,36 @@ namespace atividade_sistema_biblioteca
                 Console.WriteLine("digite o número da opção de como desejar procurar seu livro:" +
                     "\n1 - Pelo nome do livro" +
                     "\n2 - Pelo nome do autor" +
-                    "\n3 - Pelo nome da editora" +
-                    "\n4 - Pela disponibilidade");
+                    "\n3 - Pelo nome da editora");
                 Int16 escolhaOperacaoEmprestimo = Convert.ToInt16(Console.ReadLine());
                 
 
                 if (escolhaOperacaoEmprestimo == 1)
                 {
-
+                    Console.Clear();
                     Console.WriteLine("Digite o nome do Livro: ");
                     string nomeDoLivroEmprestimo = Console.ReadLine();
 
+                    Console.WriteLine("Lista de livros com o nome especificado: ");
+                    //Laço de repetição que percorre a quantidade de livros cadastrados no armazenamento
                     for (int procurarTitulo = 0; procurarTitulo < numQuantCadastro; procurarTitulo++)
                     {
 
-                        if (livros[procurarTitulo].titulo == nomeDoLivroEmprestimo)
+                        if ((livros[procurarTitulo].titulo).Contains(nomeDoLivroEmprestimo))
                         {
                             Console.WriteLine(livros[procurarTitulo].MostrarInformacoes());
+                        }else
+                        {
+                            Console.WriteLine("Não foi encontrado nenhum resultado!.");
                         }
                     }
-                    Console.Write("o livro é {0}", nomeDoLivroEmprestimo);
+                    
+                    Console.WriteLine("\nDigite o Id o livro que deseja pegar emprestado: ");
+                    idLivroEscolhido = Convert.ToInt16(Console.ReadLine() );
+                    Console.WriteLine("Confirma o emprestimo? (s/n)");
+                    confirmaEmprestimo = Console.ReadLine().ToLower() ;
+                    livros[idLivroEscolhido].Emprestar(confirmaEmprestimo);
+                    Console.WriteLine("\nVocê acaba de confirmar o emprestimo do livro com dados abaixo: \n{0}", livros[idLivroEscolhido].MostrarInformacoes());
 
                 }
                 else if (escolhaOperacaoEmprestimo == 2)
@@ -155,26 +167,83 @@ namespace atividade_sistema_biblioteca
                     Console.WriteLine("Digite o nome do autor do Livro: ");
                     string nomeDoAutorEmprestimoAutor = Console.ReadLine();
 
+                    Console.WriteLine("Lista de livros com o nome do Autor especificado: ");
+                    //Laço de repetição que percorre a quantidade de livros cadastrados no armazenamento
+                    for (int procurarAutor = 0; procurarAutor < numQuantCadastro; procurarAutor++)
+                    {
+
+                        if ((livros[procurarAutor].autor).Contains(nomeDoAutorEmprestimoAutor))
+                        {
+                            Console.WriteLine(livros[procurarAutor].MostrarInformacoes());
+                        }else
+                        {
+                            Console.WriteLine("Não foi encontrado nenhum resultado!.");
+                        }
+                    }
+
+                    Console.WriteLine("\nDigite o Id o livro que deseja pegar emprestado: ");
+                    idLivroEscolhido = Convert.ToInt16(Console.ReadLine());
+                    Console.WriteLine("Confirma o emprestimo? (s/n)");
+                    confirmaEmprestimo = Console.ReadLine().ToLower();
+                    livros[idLivroEscolhido].Emprestar(confirmaEmprestimo);
+                    Console.WriteLine("\nVocê acaba de confirmar o emprestimo do livro com dados abaixo: \n{0}", livros[idLivroEscolhido].MostrarInformacoes());
+
                 }
                 else if (escolhaOperacaoEmprestimo == 3)
                 {
                     Console.WriteLine("Digite o nome da editora,: ");
                     string nomeEditoraEmprestimo = Console.ReadLine();
 
+                    Console.WriteLine("Lista de livros com o nome da Editora especificada: ");
+                    //Laço de repetição que percorre a quantidade de livros cadastrados no armazenamento
+                    for (int procurarEditor = 0; procurarEditor < numQuantCadastro; procurarEditor++)
+                    {
+
+                        if ((livros[procurarEditor].autor).Contains(nomeEditoraEmprestimo))
+                        {
+                            Console.WriteLine(livros[procurarEditor].MostrarInformacoes());
+                        }
+                        else
+                        {
+                            Console.WriteLine("Não foi encontrado nenhum resultado!.");
+                        }
+                    }
+
+                    Console.WriteLine("\nDigite o Id o livro que deseja pegar emprestado: ");
+                    idLivroEscolhido = Convert.ToInt16(Console.ReadLine());
+                    Console.WriteLine("Confirma o emprestimo? (s/n)");
+                    confirmaEmprestimo = Console.ReadLine().ToLower();
+                    livros[idLivroEscolhido].Emprestar(confirmaEmprestimo);
+                    Console.WriteLine("\nVocê acaba de confirmar o emprestimo do livro com dados abaixo: \n{0}", livros[idLivroEscolhido].MostrarInformacoes());
+
                 }
-                else if (escolhaOperacaoEmprestimo == 4)
-                {
-                    Console.WriteLine("Qual situação desjeja ver: " + "\ncontinuar procurando");
-                    string sitauacaoLivroEmprestimo = Console.ReadLine();
-                }
-                else
-                {
+                else{
                     Console.WriteLine("Opção não é válida, tente novamente");
                 }
             }
             else if (escolhaOperacao == 2)
             {
+                Console.WriteLine("Deseja escolher por qual opção abaixo para devolução? " +
+                    "\n1 - Nome do livro" +
+                    "\n2 - Nome do Autor do livro" +
+                    "\n3 - Nome da Editora"+
+                    "Digite o número do indice: ");
+                Int16 escolhaLivroDevolucao = Convert.ToInt16(Console.ReadLine());
 
+                if(escolhaLivroDevolucao == 1)
+                {
+                    Console.Clear();
+
+                }else if(escolhaLivroDevolucao == 2)
+                {
+                    Console.Clear();
+
+                }
+                else if(escolhaLivroDevolucao == 3)
+                {
+                    Console.Clear();
+
+                }
             }
             else if (escolhaOperacao == 3)
             {

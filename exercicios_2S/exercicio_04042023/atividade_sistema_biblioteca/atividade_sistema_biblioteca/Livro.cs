@@ -18,7 +18,7 @@ namespace atividade_sistema_biblioteca
         public string autor;
         public string editora;
         public string volume;
-        public bool disponibilidade;
+        public bool disponibilidade=true;
 
         public Livro(int Id, string nomeLivro, string nomeAutor, string nomeEditora, string volumeLivro)
         {
@@ -34,13 +34,13 @@ namespace atividade_sistema_biblioteca
         //metodo que identifica se o livro está ou não emprestado
         public void Emprestar(string emprestimo)
         {
-            if (emprestimo == "esprestado")
+            if (emprestimo == "s")
             {
-                this.disponibilidade = true;
+                this.disponibilidade = false;
             }
             else
             {
-                this.disponibilidade = false;
+                this.disponibilidade = true;
             }
         }
 
@@ -60,11 +60,11 @@ namespace atividade_sistema_biblioteca
         //metodo que chama as informações de mostra para o usuário
         public string MostrarInformacoes()
         {
-            string mensagem = this.Id + ", " +
-                this.titulo + ", " +
-                this.autor + ", " +
-                this.editora + ", " +
-                this.volume + ", " +
+            string mensagem = this.Id + ", Titulo: " +
+                this.titulo + ", Autor: " +
+                this.autor + ", Editora: " +
+                this.editora + ", Volume: " +
+                this.volume + ",  Disponivel: " +
                 this.disponibilidade;
 
             return mensagem;
