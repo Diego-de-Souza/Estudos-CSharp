@@ -15,19 +15,8 @@ namespace atividade_sistema_biblioteca
             ///da materia de algoritmo
             /// </summary>
 
-            //declaração de variaveis iniciais
-            string usuarioLogin, senhaLogin;
-            bool controle = true;
-            //declaração do array de login
-            string[] listaLogin = new string[3];
-            listaLogin[0] = "admin";
-            listaLogin[1] = "user";
-            listaLogin[2] = "agent";
-            //declaração do array de senha
-            string[] listaSenha = new string[3];
-            listaSenha[0] = "admin123";
-            listaSenha[1] = "user123";
-            listaSenha[2] = "agent123";
+            //declaração da classe como objeto
+            LoginUsuario identificacaoUser = new LoginUsuario();
             //declaração do array de livro para serrem cadastrados
             //inicialmente vamos usar o array com 100 posições, mais para frente 
             //podemos implementar outra forma.
@@ -35,46 +24,52 @@ namespace atividade_sistema_biblioteca
             string nomeLivro, nomeAutor, nomeEditora, volumeLivro;
             int id;
             Int32 numQuantCadastro = 1;
-        //
+        
 
         //laço de repetição para login, caso a senha esteja errada
         //continua voltando a solicitação de login e senha
         labelMenuPrincipal:
-            while (controle == true)
+            while (identificacaoUser.controle == "true")
             {
+                //teste
+                string msg;
+
                 //solicita ao usuario o login
                 Console.WriteLine("Digite seu usuario: ");
-                usuarioLogin = Console.ReadLine().ToLower();
+                identificacaoUser.usuarioLogin = Console.ReadLine().ToLower();
                 //solicita ao usuario a senha
                 Console.WriteLine("Digite sua senha: ");
-                senhaLogin = Console.ReadLine().ToLower();
+                identificacaoUser.senhaLogin = Console.ReadLine().ToLower();
 
+                identificacaoUser.VerificaUsuario(identificacaoUser.usuarioLogin, identificacaoUser.senhaLogin);
                 //laço condicional que identifica o login e senha 
                 //identifica qual usuario está logado
-                if (usuarioLogin == listaLogin[0] && senhaLogin == listaSenha[0])
+                if (identificacaoUser.verificacaoUsuario == "master")
                 {
                     //caso a condição esteja ok é executado o comando goto que faz um jumper
                     //até o local definido com a tag "labelAdmin:"
-                    goto labelAdmin;
-                    controle = false;
+                    //goto labelAdmin;
+                    msg = "Administrador ok";
+                    Console.WriteLine(msg);
                 }
-                else if (usuarioLogin == listaLogin[1] && senhaLogin == listaSenha[1])
+                else if (identificacaoUser.verificacaoUsuario == "user")
                 {
                     //caso a condição esteja ok é executado o comando goto que faz um jumper
                     //até o local definido com a tag "labelUser:"
-                    goto labelUser;
-                    controle = false;
+                    //goto labelUser;
+                    msg = "usuario padrão ok";
+                    Console.WriteLine(msg);
                 }
-                else if (usuarioLogin == listaLogin[2] && senhaLogin == listaSenha[2])
+                else if (identificacaoUser.verificacaoUsuario == "agent")
                 {
                     //caso a condição esteja ok é executado o comando goto que faz um jumper
                     //até o local definido, a tag ainda não foi criada
-                    controle = false;
+                    msg = "agent ok";
+                    Console.WriteLine(msg);
                 }
                 else
                 {
                     //caso não seja inserido o login ou a senha correta ele solicita que insira novamente login e senha
-                    controle = true;
                     Console.Clear();
                     Console.WriteLine("Login ou senha incorreta!");
 
