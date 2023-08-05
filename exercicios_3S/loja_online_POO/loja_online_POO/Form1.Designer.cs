@@ -49,6 +49,7 @@ namespace loja_online_POO
             this.button1.TabIndex = 0;
             this.button1.Text = "Logar";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // label1
             // 
@@ -67,6 +68,7 @@ namespace loja_online_POO
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(149, 20);
             this.textBox1.TabIndex = 2;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
             // 
             // label2
             // 
@@ -86,10 +88,12 @@ namespace loja_online_POO
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(149, 20);
             this.textBox2.TabIndex = 4;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged_1);
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.CadetBlue;
+            this.pictureBox1.BackgroundImage = global::loja_online_POO.Properties.Resources.criacao_de_loja_virtual;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Location = new System.Drawing.Point(76, 4);
             this.pictureBox1.Name = "pictureBox1";

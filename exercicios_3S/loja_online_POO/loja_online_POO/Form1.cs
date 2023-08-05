@@ -12,64 +12,46 @@ namespace loja_online_POO
 {
     public partial class Form1 : Form
     {
-        //declaração da classe como objeto
-        LoginUsuario identificacaoUser = new LoginUsuario();
+        //declaração da classe para identificação do usuario
+        Cliente identificacaoUser = new Cliente();
+        //declaração de uma classe para nova tela
         Form2 tela2 = new Form2();
-        Form3 tela3 = new Form3();
         public Form1()
         {
             InitializeComponent();
         }
-
         private void label2_Click(object sender, EventArgs e)
         {
 
         }
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
         {
             identificacaoUser.usuarioLogin = textBox1.Text;
         }
-        private void textBox2_TextChanged(object sender, EventArgs e)
+        private void textBox2_TextChanged_1(object sender, EventArgs e)
         {
             identificacaoUser.senhaLogin = textBox2.Text;
         }
+        
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click_1(object sender, EventArgs e)
         {
-            identificacaoUser.VerificaUsuario(textBox1.Text, textBox2.Text);
+            identificacaoUser.DadosUsuarios(textBox1.Text, textBox2.Text);
             if (string.IsNullOrEmpty(identificacaoUser.usuarioLogin) || string.IsNullOrEmpty(identificacaoUser.senhaLogin))
             {
                 MessageBox.Show("Please enter your username and password.");
                 return;
             }
 
-            if (identificacaoUser.verificacaoUsuario == "master")
+            if (identificacaoUser.clienteAtivo == true)
             {
-                MessageBox.Show("Login Master successful!");
+                MessageBox.Show("Login efetuado com sucesso vamos as compras!");
                 // Abrir a nova janela do aplicativo
                 tela2.Show();
                 return;
             }
-            else if (identificacaoUser.verificacaoUsuario == "user")
-            {
-                MessageBox.Show("Login User successful!");
-                // Abrir a nova janela do aplicativo
-                form3.Show();
-                return;
-            }
-            else if (identificacaoUser.verificacaoUsuario == "agent")
-            {
-                MessageBox.Show("Login successful!");
-                // Abrir a nova janela do aplicativo
-                Form2 form2 = new Form2();
-                return;
-            }
-            else
-            {
-                MessageBox.Show("Usuario incorreto!!!");
-            }
-
-
         }
+
+        
     }
 }
