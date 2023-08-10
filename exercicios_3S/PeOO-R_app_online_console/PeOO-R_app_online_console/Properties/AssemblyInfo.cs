@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // As informações gerais sobre um assembly são controladas por
 // conjunto de atributos. Altere estes valores de atributo para modificar as informações
 // associadas a um assembly.
-[assembly: AssemblyTitle("loja_online_POO")]
+[assembly: AssemblyTitle("PeOO-R_app_online_console")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("loja_online_POO")]
+[assembly: AssemblyProduct("PeOO-R_app_online_console")]
 [assembly: AssemblyCopyright("Copyright ©  2023")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // O GUID a seguir será destinado à ID de typelib se este projeto for exposto para COM
-[assembly: Guid("867150e7-e9bc-410d-ae74-3a0dc553a7a2")]
+[assembly: Guid("5f423d17-5839-4a63-ae33-5a03c5656696")]
 
 // As informações da versão de um assembly consistem nos quatro valores a seguir:
 //
