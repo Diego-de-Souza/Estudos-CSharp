@@ -23,15 +23,15 @@ namespace PeOO_R_app_online_console
             this.item3 = item3;
         }
 
-        public void calculoCompras(decimal valor1, decimal valor2, decimal valor3)
+        public void calculoCompras(decimal valor1, decimal valor2, decimal valor3, int qtdItens)
         {
-            if(item1 != null || item2 != null || item3 != null)
+            if(qtdItens == 3)
             {
                 this.totalCarrinho = valor1 + valor2 + valor3;
-            }else if (item1 != null || item2 != null || item3 == null)
+            }else if (qtdItens == 2)
             {
                 this.totalCarrinho = valor1 + valor2;
-            }else if(item1 != null || item2 != null || item3 == null)
+            }else if(qtdItens == 1)
             {
                 this.totalCarrinho = valor1;
             }
@@ -40,22 +40,22 @@ namespace PeOO_R_app_online_console
             this.valorItem3 = valor3;
         }
 
-        public void itensDaNota(string produtonota1, string produtonota2, string produtonota3)
+        public void itensDaNota(string produtonota1, string produtonota2, string produtonota3, int qtdItens)
         {
-            if (item1 != null || item2 != null || item3 != null)
+            if (qtdItens == 3)
             {
                 Console.WriteLine($"item1: {this.valorItem1} - {produtonota1}");
                 Console.WriteLine($"item2: {this.valorItem2} - {produtonota2}");
                 Console.WriteLine($"item3: {this.valorItem2} - {produtonota3}");
                 Console.WriteLine($"Total: {this.totalCarrinho}");
             }
-            else if (item1 != null || item2 != null || item3 == null)
+            else if (qtdItens == 2)
             {
                 Console.WriteLine($"item1: {this.valorItem1} - {produtonota1}");
                 Console.WriteLine($"item2: {this.valorItem2} - {produtonota2}");
                 Console.WriteLine($"Total: {this.totalCarrinho}");
             }
-            else if (item1 != null || item2 != null || item3 == null)
+            else if (qtdItens == 1)
             {
                 Console.WriteLine($"item1: {this.valorItem1} - {produtonota1}");
                 Console.WriteLine($"Total: {this.totalCarrinho}");

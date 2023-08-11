@@ -36,7 +36,7 @@ namespace PeOO_R_app_online_console
             dadosClientes.nomeUsuario = Console.ReadLine();
             //solicitação da senha do usuario
             Console.WriteLine("Digite a senha: ");
-            dadosClientes.senhaUsuario = Console.ReadLine();
+            dadosClientes.senhaUsuario = Console.ReadLine().ToLower();
 
             //limpa a tela inicial e começa a exibição da segunda tela
             Console.Clear();
@@ -55,45 +55,72 @@ namespace PeOO_R_app_online_console
             numeroItem[0] = Convert.ToInt32(Console.ReadLine());
 
             //cria a quantidade maxima de itens no carrinho
-            int numeroItens = 0;
+            int numeroItens = 1;
             //laço de confirmação de dados para carrinho
-            while (numeroItens <= 1)
+            
+            for(int contagem=1;contagem <= 2; contagem++)
             {
-                //pergunta se deseja incluir um novo produto
-                Console.WriteLine("Deseja incluir outro produto? (s/n)");
-                string novoProd = Console.ReadLine();
-                //laço condicional que vai confirmar se vai ser inserido um novo produto no carrinho
-                if(novoProd == "s" || novoProd == "S")
+                //solicita ao usuario para incluir o n umero de mais itens ao carrinho
+                Console.WriteLine("Deseja inserir outro item no carrinho? (s/n)");
+                string confirmacao = Console.ReadLine();
+                //laço de confirmação que diz se vai continuar incluindo itens ou vai parar
+                if(confirmacao =="s" || confirmacao == "S")
                 {
-                    
                     numeroItens += 1;
-                    Console.WriteLine("Digite o numero do próximo item a ser inserido no carrinho: ");
-                    numeroItem[numeroItens] = Convert.ToInt32(Console.ReadLine());
-                    //laço condicional que verifica se o produto jánão foi incluido no carrinho
-                    if(numeroItem[numeroItens] == numeroItem[0] || numeroItem[numeroItens] == numeroItem[1] || numeroItem[numeroItens] == numeroItem[2])
-                    {
-                        Console.WriteLine("Este item já fio incluido no carrinho, digite outro!");
-                    }
-                    numeroItens -= 1;
-                }else if(novoProd == "n" || novoProd == "N")
-                {
-                    numeroItens = 2;
+                    Console.WriteLine("Ditige o numero do outro item que deseja incluir no carrinho: ");
+                    numeroItem[contagem] = Convert.ToInt32(Console.ReadLine());
                 }
                 else
                 {
-                    Console.WriteLine("resposta não confere com a solicitada, tente novamente.");
+                    Console.WriteLine("Bora para o carrinho de compras!!!");
+                    contagem = 2;
+                }
+                //acerta os numeros do indice da matriz dos produtos para os produtos nulos
+                if(contagem==2 && (confirmacao =="n" || confirmacao == "N"))
+                {
+                    numeroItem[1]=2;
+                    numeroItem[2]=1;
+                }else if(contagem==3 && (confirmacao =="n" || confirmacao == "N"))
+                {
+                    numeroItem[1]=1;
+                    numeroItem[2]=1;
                 }
             }
+            //envia para classe carrinho os dados dos itens para interação com carrinho de compras
             CarrinhoDeCompras carrinhoC = new CarrinhoDeCompras(numeroItem[0], numeroItem[1], numeroItem[2]);
-            carrinhoC.calculoCompras(listaProdutos[numeroItem[0]].valorProduto, listaProdutos[numeroItem[1]].valorProduto, listaProdutos[numeroItem[2]].valorProduto);
+            carrinhoC.calculoCompras(listaProdutos[(numeroItem[0]-1)].valorProduto, listaProdutos[(numeroItem[1]-1)].valorProduto, listaProdutos[(numeroItem[2]-1)].valorProduto,numeroItens);
             
             //limpa a tela para abertura do carrinho de compras
-            Console.Clear();
+            //Console.Clear();
             Console.WriteLine("========================== APP online PeOO-R ==========================\n");
             Console.WriteLine($"cliente: {dadosClientes.nomeUsuario}\n");
             Console.WriteLine("========================== Carrinho de compras ==========================\n");
 
-            carrinhoC.itensDaNota(listaProdutos[numeroItem[0]].nomeProduto, listaProdutos[numeroItem[1]].nomeProduto, listaProdutos[numeroItem[2]].nomeProduto);
+            carrinhoC.itensDaNota(listaProdutos[(numeroItem[0]-1)].nomeProduto, listaProdutos[(numeroItem[1]-1)].nomeProduto, listaProdutos[(numeroItem[2]-1)].nomeProduto,numeroItens);
+
+            Console.WriteLine("Confirma os itens selecionados? (s/n)");
+            string confirmacaoCarrinho = Console.ReadLine().ToLower();
+            if(confirmacaoCarrinho == "s") { 
+                Console.WriteLine("Digite a senha para confirmar a compra: ");
+                string senhaCompra = Console.ReadLine().ToLower();
+
+                if(senhaCompra == dadosClientes.senhaUsuario)
+                {
+                    Console.Clear();
+                    Console.WriteLine("========================== APP online PeOO-R ==========================\n");
+                    Console.WriteLine($"cliente: {dadosClientes.nomeUsuario}\n");
+                    Console.WriteLine("======================== Confirmação de compra ========================\n");
+                    Console.WriteLine("Parabens, o senhor(a) acaba de adquirir excelentes itens!!!"
+                                        +"Obrigado pela compra, volte sempre.");
+
+                }
+            }
+            else
+            {
+                Console.Clear();
+                Console.WriteLine("Sentimos muito, tente novamente!");
+            }
+            
 
             Console.ReadKey();
         }
