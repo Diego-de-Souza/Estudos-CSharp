@@ -91,7 +91,7 @@ namespace PeOO_R_app_online_console
             carrinhoC.calculoCompras(listaProdutos[(numeroItem[0]-1)].valorProduto, listaProdutos[(numeroItem[1]-1)].valorProduto, listaProdutos[(numeroItem[2]-1)].valorProduto,numeroItens);
             
             //limpa a tela para abertura do carrinho de compras
-            //Console.Clear();
+            Console.Clear();
             Console.WriteLine("========================== APP online PeOO-R ==========================\n");
             Console.WriteLine($"cliente: {dadosClientes.nomeUsuario}\n");
             Console.WriteLine("========================== Carrinho de compras ==========================\n");
