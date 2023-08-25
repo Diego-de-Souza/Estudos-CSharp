@@ -14,17 +14,23 @@ namespace App_PetShop_console
             Animais animais = new Animais();
             bool continuar = true;
 
+            //nomeando o titulo do console
+            Console.Title = "APP - PetShop";
+            //laço que garante a repetição das opções
             while (continuar)
             {
                 //Tela principal
-                Console.WriteLine("---> Bem vindos ao PetShop da Villa <---");
-                Console.WriteLine("Escolha a opção desejada: ");
+                Console.WriteLine("======================================================");
+                Console.WriteLine("----------> Bem vindos ao PetShop da Villa <----------");
+                Console.WriteLine("======================================================");
+                Console.WriteLine(" Escolha a opção desejada: ");
                 Console.WriteLine(
-                    "1 - Cadastrar animal\n"+
-                    "2 - Consultar animal\n"+
-                    "3 - Alterar animal\n" +
-                    "4 - Excluir animal\n"+
-                    "5 - Sair do programa");
+                    "   1 - Cadastrar animal\n"+
+                    "   2 - Consultar animal\n"+
+                    "   3 - Alterar animal\n" +
+                    "   4 - Excluir animal\n"+
+                    "   5 - Sair do programa");
+                Console.WriteLine("------------------------------------------------------");
                 int opcao = int.Parse(Console.ReadLine());
 
                 switch (opcao)
@@ -42,11 +48,11 @@ namespace App_PetShop_console
                         animais.Excluir();
                         break;
                     case 5:
-                        Console.WriteLine("Obrigado por utilizar. Até logo!");
+                        Console.WriteLine(" Obrigado por utilizar. Até logo!");
                         continuar=false;
                         break;
                     default:
-                        Console.WriteLine("Opção inválida!");
+                        Console.WriteLine(" Opção inválida!");
                         break;
                 }
             }

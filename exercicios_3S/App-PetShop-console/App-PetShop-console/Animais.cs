@@ -34,37 +34,59 @@ namespace App_PetShop_console
         //metodo que exclui os dados dos animais
         public void Excluir()
         {
-            this.Nome = "";
-            this.Especie = "";
-            this.DataNasc = DateTime.UtcNow;
+            this.Nome = null;
+            this.Especie = null;
+            this.DataNasc = DateTime.MinValue;
+            this.Raca = null;
+            this.Peso = 0;
+            //Método para excluir os dados do animal
         }
-        public void LimparDados()
-        {
-
-        }
-        public void Alterar() { 
         
+        public void Alterar() { 
+            //Método para alterar dados no animal
+            Console.WriteLine("---> Alteração de Cadastro do Animal <---");
+            Console.Write("Nome: ");
+            this.Nome = Console.ReadLine();
+
+            Console.Write("Digite a espécie: ");
+            this.Especie = Console.ReadLine();
+
+            Console.Write("Digite a raça: ");
+            this.Raca = Console.ReadLine();
+
+            Console.Write("Digite a data de nascimento. \n Formato: dd/mm/aaaa");
+            this.DataNasc = Convert.ToDateTime(Console.ReadLine());
+
+            Console.Write("Digite o peso: ");
+            this.Peso = float.Parse(Console.ReadLine());
         }
         //metodo de consulta de dados do animal
         public void Consultar()
         {
+            //método para consulta os dados
             Console.WriteLine("---> Consultar dados do animal <---");
 
-            //cria um menu para escolher qual item para fazer a consulta
-            Console.WriteLine("Informe a opção para consultar dados do animal: ");
-            string consultaAnimal = Console.ReadLine();
-
-            if(consultaAnimal.ToUpper() == this.Nome.ToUpper()) {
-                Console.WriteLine("Nome: ",Nome);
-                Console.WriteLine("Data de Nascimento: ",DataNasc);
-                Console.WriteLine($"Especie: {Especie}");
-                Console.WriteLine("Raça: "+Raca);
-                Console.WriteLine("Peso: ",Peso);
-            }
-            else
+            do
             {
-                Console.WriteLine("errado");
-            }
+                Console.WriteLine("Informe o nome do animal para consultar dados: ");
+                string consultaAnimal = Console.ReadLine().ToUpper();
+
+                if (consultaAnimal == Nome.ToUpper())
+                {
+                    Console.WriteLine("Dados encontrados:");
+                    Console.WriteLine("Nome: " + this.Nome);
+                    Console.WriteLine("Data de Nascimento: " + this.DataNasc);
+                    Console.WriteLine($"Espécie: {this.Especie}");
+                    Console.WriteLine("Raça: " + this.Raca);
+                    Console.WriteLine("Peso: " + this.Peso);
+                    Console.ReadKey();
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Nenhum animal cadastrado.");
+                }
+            }while(true);
         }
     }
 }
