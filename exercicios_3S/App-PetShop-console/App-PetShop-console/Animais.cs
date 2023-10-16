@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace App_PetShop_console
 {
-    class Animais
+    public class Animais
     {
         //declaração dos atributos
         public string Nome;
