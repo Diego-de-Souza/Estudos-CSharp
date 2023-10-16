@@ -6,15 +6,23 @@ using System.Threading.Tasks;
 
 namespace PeOO_R_app_online_console
 {
+        /* Classe Carrinho de compras uma abstraçao de um carrinho de compras
+         * utilizado o conceito de encapsulamento, o conceito de herança vai ser aplicado em um
+         * futuro desenvolvimento para dar uma dinamica diferente
+         * 
+         * autor: Diego de Souza
+         */
     class CarrinhoDeCompras
     {
-        public int item1;
-        public int item2;
-        public int item3;
-        public decimal valorItem1;
-        public decimal valorItem2;
-        public decimal valorItem3;
-        public decimal totalCarrinho;
+        //declarando as variaveis de forma privada no conceito de encapsulamento
+        //para ter um controle ao o que quero que meu usuario veja e possa modificar
+        private int item1;
+        private int item2;
+        private int item3;
+        private decimal valorItem1;
+        private decimal valorItem2;
+        private decimal valorItem3;
+        private decimal totalCarrinho;
 
         public CarrinhoDeCompras(int item1, int item2, int item3)
         {

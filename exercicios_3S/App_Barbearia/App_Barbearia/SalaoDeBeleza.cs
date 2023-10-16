@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace App_Barbearia
 {
+        /* Classe criada para simular os trabalhos desenvolvidos dentro da barbearia
+         * o nome SalaoDeBeleza da classe é só para dar uma dinamica diferente
+         * autor: Diego de Souza
+         */
     class SalaoDeBeleza
     {
         private List<Cliente> clientes;

@@ -6,6 +6,12 @@ using System.Threading.Tasks;
 
 namespace App_Barbearia
 {
+        /* Classe clientes criada para cadastro abstrato de uma pessoa como barbeiro
+         * utilizado o conceito de encapsulamento, o conceito de herança vai ser aplicado em um
+         * futuro desenvolvimento para dar uma dinamica diferente
+         * 
+         * autor: Diego de Souza
+         */
     class Barbeiro
     {
         private string nome { get; set; }
